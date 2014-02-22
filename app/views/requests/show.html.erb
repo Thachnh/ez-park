@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Meter:</strong>
+  <%= @request.meter_id %>
+</p>
+
+<p>
+  <strong>Paytime:</strong>
+  <%= @request.paytime %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @request.duration %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @request.status %>
+</p>
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>

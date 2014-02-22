@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @meter.lat %>
+</p>
+
+<p>
+  <strong>Long:</strong>
+  <%= @meter.long %>
+</p>
+
+<p>
+  <strong>Block:</strong>
+  <%= @meter.block_id %>
+</p>
+
+<p>
+  <strong>Rate:</strong>
+  <%= @meter.rate %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @meter.status %>
+</p>
+
+<%= link_to 'Edit', edit_meter_path(@meter) %> |
+<%= link_to 'Back', meters_path %>
