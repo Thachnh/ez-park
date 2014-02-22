@@ -24,6 +24,7 @@ class RequestsController < ApplicationController
   # POST /requests
   # POST /requests.json
   def create
+    puts request_params.inspect
     @request = Request.new(request_params)
 
     respond_to do |format|
