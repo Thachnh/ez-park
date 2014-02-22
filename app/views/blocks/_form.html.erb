@@ -1,0 +1,49 @@
+<%= form_for(@block) do |f| %>
+  <% if @block.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@block.errors.count, "error") %> prohibited this block from being saved:</h2>
+
+      <ul>
+      <% @block.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :limit %><br>
+    <%= f.number_field :limit %>
+  </div>
+  <div class="field">
+    <%= f.label :count %><br>
+    <%= f.number_field :count %>
+  </div>
+  <div class="field">
+    <%= f.label :fromDay %><br>
+    <%= f.number_field :fromDay %>
+  </div>
+  <div class="field">
+    <%= f.label :toDay %><br>
+    <%= f.number_field :toDay %>
+  </div>
+  <div class="field">
+    <%= f.label :fromHour %><br>
+    <%= f.number_field :fromHour %>
+  </div>
+  <div class="field">
+    <%= f.label :toHour %><br>
+    <%= f.number_field :toHour %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.number_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

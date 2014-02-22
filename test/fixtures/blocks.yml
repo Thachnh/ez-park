@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address: MyString
+  limit: 1
+  count: 1
+  fromDay: 1
+  toDay: 1
+  fromHour: 1
+  toHour: 1
+  status: 1
+
+two:
+  address: MyString
+  limit: 1
+  count: 1
+  fromDay: 1
+  toDay: 1
+  fromHour: 1
+  toHour: 1
+  status: 1

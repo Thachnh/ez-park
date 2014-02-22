@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @block.address %>
+</p>
+
+<p>
+  <strong>Limit:</strong>
+  <%= @block.limit %>
+</p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @block.count %>
+</p>
+
+<p>
+  <strong>Fromday:</strong>
+  <%= @block.fromDay %>
+</p>
+
+<p>
+  <strong>Today:</strong>
+  <%= @block.toDay %>
+</p>
+
+<p>
+  <strong>Fromhour:</strong>
+  <%= @block.fromHour %>
+</p>
+
+<p>
+  <strong>Tohour:</strong>
+  <%= @block.toHour %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @block.status %>
+</p>
+
+<%= link_to 'Edit', edit_block_path(@block) %> |
+<%= link_to 'Back', blocks_path %>
