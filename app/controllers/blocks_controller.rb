@@ -12,14 +12,20 @@ class BlocksController < ApplicationController
     else
       limit = 10
     end
-    limit = params[:limit]
-    status = params[:status]
-    lat_max = params[:lat] + d_lat
-    lat_min = params[:lat] - d_lat
-    lon_max = params[:lon] + d_lon
-    lon_min = params[:lon] - d_lon
-    @blocks = Block.where("lat >= ? AND lat <= ? AND lon >= ? AND lon <= ? AND status = ?", lat_min,
+    if (params.has_key?(:lat) and params.has_key?(:lon) and params.has_key?(:status))
+      lat_max = params[:lat] + d_lat
+      lat_min = params[:lat] - d_lat
+      lon_max = params[:lon] + d_lon
+      lon_min = params[:lon] - d_lon
+      status = params[:status]
+      @blocks = Block.where("lat >= ? AND lat <= ? AND lon >= ? AND lon <= ? AND status = ?", lat_min,
       lat_max, lon_min, lon_max, status).limit(limit)
+    elsif (params.has_key?(:status))
+      @blocks = Block.where("status = ?", status).limit(limit)
+    else
+      @blocks = Block.all.limit(limit)
+    end
+    
   end
 
   # GET /blocks/1
