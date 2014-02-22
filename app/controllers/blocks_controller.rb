@@ -90,6 +90,6 @@ class BlocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def block_params
-      params.require(:block).permit(:address, :limit, :count, :fromDay, :toDay, :fromHour, :toHour, :status)
+      params.require(:block).permit(:address, :lat, :lon, :limit, :count, :fromDay, :toDay, :fromHour, :toHour, :status)
     end
 end

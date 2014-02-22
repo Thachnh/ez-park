@@ -4,6 +4,8 @@
   <thead>
     <tr>
       <th>Address</th>
+      <th>Lat</th>
+      <th>Lon</th>
       <th>Limit</th>
       <th>Count</th>
       <th>Fromday</th>
@@ -21,6 +23,8 @@
     <% @blocks.each do |block| %>
       <tr>
         <td><%= block.address %></td>
+        <td><%= block.lat %></td>
+        <td><%= block.lon %></td>
         <td><%= block.limit %></td>
         <td><%= block.count %></td>
         <td><%= block.fromDay %></td>
