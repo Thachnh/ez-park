@@ -13,7 +13,7 @@ class BlocksController < ApplicationController
       limit = 10
     end
     if (params.has_key?(:adminview))
-      @blocks = Block.where("count > 0").select("lat,lon,count")
+      @blocks = Block.where("count > 0")
     elsif (params.has_key?(:address))
       address = params[:address]
       @blocks = Block.where("address = ?", address)
