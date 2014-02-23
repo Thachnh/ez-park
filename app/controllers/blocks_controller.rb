@@ -5,8 +5,8 @@ class BlocksController < ApplicationController
   # GET /blocks.json
   def index
     # @block = Block.all
-    d_lat = 0.1
-    d_lon = 0.1
+    d_lat = 0.0001
+    d_lon = 0.0001
     if (params.has_key?(:limit))
       limit = params[:limit]
     else
