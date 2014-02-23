@@ -21,7 +21,7 @@ class BlocksController < ApplicationController
       lon_max = params[:lon] + d_lon
       lon_min = params[:lon] - d_lon
       status = params[:status]
-      @blocks = Block.where("lat >= ? AND lat <= ? AND lon >= ? AND lon <= ? AND status = ?", lat_min,
+      @blocks = Block.where("lat between ? AND ? AND lon between ? AND ? AND status = ?", lat_min,
       lat_max, lon_min, lon_max, status).limit(limit)
     elsif (params.has_key?(:status))
       @blocks = Block.where("status = ?", status).limit(limit)
