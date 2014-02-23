@@ -1,5 +1,6 @@
 class BlocksController < ApplicationController
   before_action :set_block, only: [:show, :edit, :update, :destroy]
+  respond_to :json
 
   # GET /blocks
   # GET /blocks.json
@@ -12,6 +13,8 @@ class BlocksController < ApplicationController
     else
       limit = 10
     end
+
+    
     if (params.has_key?(:adminview))
       @blocks = Block.where("count > 0")
     elsif (params.has_key?(:address))

@@ -4,19 +4,21 @@ class RequestsController < ApplicationController
   # GET /requests
   # GET /requests.json
   def index
-      current = Time.now
-      expired = Request.where(["expire_in < ?", current]).select(:meter_id)
-      blk = Meter.where("id IN (?) ", expired).select(:block_id)
-      b = Block.where("id IN (?)", blk)
-      b.each do |block|
-        c = block.count
-        if (c > 0)
-          block.count = c - 1
-        end
-        block.save
-      end
+      
 
-      Request.delete_all(["meter_id IN (?)", expired])
+      #current = Time.now
+      #expired = Request.where(["expire_in < ?", current]).select(:meter_id)
+      #blk = Meter.where("id IN (?) ", expired).select(:block_id)
+      #b = Block.where("id IN (?)", blk)
+      #b.each do |block|
+      #  c = block.count
+      #  if (c > 0)
+      #    block.count = c - 1
+      #  end
+      #  block.save
+      #end
+
+      #Request.delete_all(["meter_id IN (?)", expired])
 
       ####
 

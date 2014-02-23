@@ -4,6 +4,19 @@ class MetersController < ApplicationController
   # GET /meters
   # GET /meters.json
   def index
+      max = 1650
+      dmax = 50
+      n = 20
+      b = (1..max).to_a.shuffle[0,n]
+      c = (1..dmax).to_a.shuffle[0,n]
+      t = 0
+
+      b.each do |bid|
+        block = Block.find(bid)
+        block.count = c[t] - 10
+        t = (t + 1)%dmax;
+        block.save
+      end
     @meters = Meter.all
   end
 
