@@ -14,7 +14,7 @@ class MetersController < ApplicationController
       b.each do |bid|
         block = Block.find(bid)
         block.count = c[t] - 10
-        t = (t + 1)%dmax;
+        t = (t + 1)%dmax
         block.save
       end
     @meters = Meter.all
