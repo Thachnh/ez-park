@@ -4,10 +4,10 @@ class MetersController < ApplicationController
   # GET /meters
   # GET /meters.json
   def index
-      max = 1650
+      max = 6700
       dmax = 50
       n = 20
-      b = (1..max).to_a.shuffle[0,n]
+      b = (5060..max).to_a.shuffle[0,n]
       c = (1..dmax).to_a.shuffle[0,n]
       t = 0
 

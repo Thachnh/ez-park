@@ -23,3 +23,7 @@ every 1.minute do
 	command "curl -XGET http://ez-park.herokuapp.com/meters"
 #command "curl -XGET http://localhost:3000/meters"
 end
+
+every 1.minute do
+	command "curl -XGET http://localhost:3000/meters"
+end
