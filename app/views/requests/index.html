@@ -25,14 +25,17 @@
     <script>
 	// Get data
 	// [{lat: 12, long: 12, count: 1}, ....]
+	 var data = [];
 	 $.ajax({
 	    'url' : '/blocks',
 	    'type' : 'GET',
+	    'async' : false,
 	    'data' : {
-	      'adminView' : 1
+	      'adminView' : 1,
+	      'format': 'json'
 	    },
 	    'success' : function(response) {
-		debugger;
+			data = response;
 	    }
 	  });
 
@@ -41,8 +44,20 @@
 
 	var taxiData = [
 	  new google.maps.LatLng(39.9526351,-75.1633454),
-
 	];
+
+	for (var i = 0; i < data.length; i++) {
+		var count = data[i].count;
+		var lon = data[i].lon;
+		var lat = data[i].lat;
+		if (count !== undefined && count > 0) {
+			for (var j = 0; j < count; j++) {
+				taxiData.push(new google.maps.LatLng(lat, lon));
+			}
+		}
+	}
+
+console.log(taxiData);
 
 	function initialize() {
 	  var mapOptions = {
