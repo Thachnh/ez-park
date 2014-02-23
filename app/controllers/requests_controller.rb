@@ -6,21 +6,14 @@ class RequestsController < ApplicationController
   def index
       current = Time.now
       expired = Request.where(["expire_in < ?", current]).select(:meter_id)
-      puts expired.inspect
-
       blk = Meter.where("id IN (?) ", expired).select(:block_id)
-      puts blk.inspect
-
       b = Block.where("id IN (?)", blk)
-      puts b.inspect
-
       b.each do |block|
         c = block.count
         if (c > 0)
           block.count = c - 1
         end
         block.save
-        
       end
 
       Request.delete_all(["meter_id IN (?)", expired])
@@ -31,7 +24,7 @@ class RequestsController < ApplicationController
       #block = Block.joins(:meters).where(meters: { meter_id: meter_id})
       #puts block.inspect
     
-      @requests = Request.where("expire_in < ?", Time.now)
+      @requests = Request.where("expire_in > ?", Time.now)
       #@requests = Request.all
   end
 
