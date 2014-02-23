@@ -1,4 +1,4 @@
-ezpark
+ez-park
 ======
 
 Philly Codefest
