@@ -12,7 +12,10 @@ class BlocksController < ApplicationController
     else
       limit = 10
     end
-    if (params.has_key?(:lat) and params.has_key?(:lon) and params.has_key?(:status))
+    if (params.has_key?(:address))
+      address = params[:address]
+      @blocks = Block.where("address = ?", address)
+    elsif (params.has_key?(:lat) and params.has_key?(:lon) and params.has_key?(:status))
       lat_max = params[:lat] + d_lat
       lat_min = params[:lat] - d_lat
       lon_max = params[:lon] + d_lon
