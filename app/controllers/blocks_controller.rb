@@ -15,14 +15,19 @@ class BlocksController < ApplicationController
     if (params.has_key?(:address))
       address = params[:address]
       @blocks = Block.where("address = ?", address)
-    elsif (params.has_key?(:lat) and params.has_key?(:lon) and params.has_key?(:status))
-      lat_max = params[:lat] + d_lat
-      lat_min = params[:lat] - d_lat
-      lon_max = params[:lon] + d_lon
-      lon_min = params[:lon] - d_lon
-      status = params[:status]
-      @blocks = Block.where("lat between ? AND ? AND lon between ? AND ? AND status = ?", lat_min,
-      lat_max, lon_min, lon_max, status).limit(limit)
+    elsif (params.has_key?(:lat) and params.has_key?(:lon))
+      lat_max = params[:lat].to_f + d_lat
+      lat_min = params[:lat].to_f - d_lat
+      lon_max = params[:lon].to_f + d_lon
+      lon_min = params[:lon].to_f - d_lon
+      if (params.has_key?(:status))
+        status = params[:status]
+        @blocks = Block.where("lat between ? AND ? AND lon between ? AND ? AND status = ?", lat_min,
+          lat_max, lon_min, lon_max, status).limit(limit)
+      else
+        @blocks = Block.where("lat between ? AND ? AND lon between ? AND ?", lat_min,
+          lat_max, lon_min, lon_max).limit(limit)
+      end
     elsif (params.has_key?(:status))
       @blocks = Block.where("status = ?", status).limit(limit)
     else
