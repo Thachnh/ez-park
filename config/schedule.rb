@@ -20,5 +20,6 @@
 # Learn more: http://github.com/javan/whenever
 
 every 1.minute do
-	command "curl -XGET http://ez-park.herokuapp.com/requests"
+	#command "curl -XGET http://ez-park.herokuapp.com/requests"
+	command "curl -XGET http://localhost:3000/requests"
 end
